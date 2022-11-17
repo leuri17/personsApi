@@ -1,33 +1,92 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
+import Header from './components/Header'
 
-function App() {
-  const [count, setCount] = useState(0)
+function App () {
+  const [persons, setPersons] = useState([])
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [email, setEmail] = useState('')
+
+  const handleSubmit = event => {
+    event.preventDefault()
+
+    setPersons([
+      ...persons,
+      { id: firstName, firstName, lastName, phoneNumber, email }
+    ])
+  }
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <>
+      <Header />
+
+      <div id='main' style={{ display: 'flex' }}>
+        <div id='persons' style={{ minWidth: '50%' }}>
+          {persons.map(p => (
+            <div key={p.id}>{p.firstName}</div>
+          ))}
+        </div>
+        <div id='personsForm' style={{ minWidth: '50%' }}>
+          <form onSubmit={handleSubmit}>
+            <div className='formGroup'>
+              <label htmlFor='firstNameInput'>First name:</label>
+              <input
+                type='text'
+                id='firstNameInput'
+                name='firstName'
+                value={firstName}
+                onChange={e => {
+                  setFirstName(e.target.value)
+                }}
+              />
+            </div>
+            <div className='formGroup'>
+              <label htmlFor='lastNameInput'>Last name:</label>
+              <input
+                type='text'
+                id='lastNameInput'
+                name='lastName'
+                value={lastName}
+                onChange={e => {
+                  setLastName(e.target.value)
+                }}
+              />
+            </div>
+            <div className='formGroup'>
+              <label htmlFor='phoneNumberInput'>Phone number:</label>
+              <input
+                type='text'
+                id='phoneNumberInput'
+                name='phoneNumber'
+                value={phoneNumber}
+                onChange={e => {
+                  setPhoneNumber(e.target.value)
+                }}
+              />
+            </div>
+            <div className='formGroup'>
+              <label htmlFor='emailInput'>Email:</label>
+              <input
+                type='email'
+                id='emailInput'
+                name='emial'
+                value={email}
+                onChange={e => {
+                  setEmail(e.target.value)
+                }}
+              />
+            </div>
+            <div className='formGroup'>
+              <button type='submit'>Submit</button>
+            </div>
+          </form>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+
+      <footer>Persons App by Leuri Alonso & Victor Irimies</footer>
+    </>
   )
 }
 
