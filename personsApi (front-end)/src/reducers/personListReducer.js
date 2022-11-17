@@ -7,7 +7,7 @@ const set = createAction('@PERSON-LIST/set')
 
 const personListReducer = createReducer(initialState, builder => {
   builder
-    .addCase(add, (state, action) => state.push(action.payload))
+    .addCase(add, (state, action) => [...state, action.payload])
     .addCase(set, (state, action) => action.payload)
 })
 
