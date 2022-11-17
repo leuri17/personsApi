@@ -1,0 +1,14 @@
+version: "3"
+services:
+  hpel_july_2022:
+    image: postgres
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=hpel_july_2022
+    ports:
+      - "5433:5432"
+    volumes:
+      - hpel_july_2022_data:/var/lib/postgresql/data
+volumes:
+  hpel_july_2022_data:
