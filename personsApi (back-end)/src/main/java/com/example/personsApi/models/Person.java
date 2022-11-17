@@ -29,6 +29,9 @@ public class Person {
     @Column(nullable = false)
     private String email;
 
+    public Person() {
+    }
+
     public Person(UUID id, String firstName, String lastName, String phoneNumber, String email) {
         this.id = id;
         this.firstName = firstName;
@@ -37,7 +40,11 @@ public class Person {
         this.email = email;
     }
 
-    public Person() {
+    public Person(String firstName, String lastName, String phoneNumber, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 
     public UUID getId() {
