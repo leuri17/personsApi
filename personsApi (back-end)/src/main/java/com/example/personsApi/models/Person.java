@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "persons")
 public class Person {
 
     @Id
@@ -17,16 +17,16 @@ public class Person {
     @Column(nullable = false)
     private UUID id;
 
-    @Column(nullable = false)
+    @Column(name = "firstname")
     private String firstName;
 
-    @Column(nullable = false)
+    @Column(name = "lastname")
     private String lastName;
 
-    @Column(nullable = false)
+    @Column(name = "phonenumber")
     private String phoneNumber;
 
-    @Column(nullable = false)
+    @Column(name = "email")
     private String email;
 
     public Person() {
