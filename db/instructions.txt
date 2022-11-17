@@ -1,0 +1,17 @@
+1. Install docker desktop + docker-compose CLI
+2. Run the following command:
+
+docker-compose up -d
+
+This will create two containers: a persistent volume for each database service, install postgres image, and expose
+the database services in different ports.
+
+ FLIGHT SERVICE'S DATABASE
+    Name: hpel_july_2022
+    Container name: hpel_july_2022
+    Exposed port: 5433
+    API User: root
+    API Password: root
+
+3. Connect to db_flight database using the previous credentials through your favorite SQL client.
+
