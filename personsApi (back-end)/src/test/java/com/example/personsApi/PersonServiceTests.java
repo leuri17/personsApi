@@ -1,6 +1,7 @@
 package com.example.personsApi;
 
 import com.example.personsApi.models.Person;
+import com.example.personsApi.services.PersonService;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class PersonServiceTests {
     @Test
     void CreatePerson_ReturnsNull_WhenUsingInvalidData() {
         int initialPersonsCount = service.getAllPersons().size();
-        Person person = new Person(null, null, null, null);
+        Person person = new Person();
         Person createdPerson = service.createPerson(person);
         int finalPersonsCount = service.getAllPersons().size();
 
