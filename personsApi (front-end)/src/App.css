@@ -1,11 +1,31 @@
 #root {
   min-width: 100vw;
   max-width: 100vw;
+  min-height: 100vh;
   display: grid;
-  grid-template-areas: 
-    "header"
-    "list form"
-    "footer";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 6fr 0.5fr;
+  gap: 0 0;
+  grid-template-areas:
+    "Header Header"
+    "List Form"
+    "Footer Footer";
   margin: 0 auto;
   padding: 0;
+}
+
+#header {
+  grid-area: Header;
+}
+
+#personList {
+  grid-area: List;
+}
+
+#personForm {
+  grid-area: Form;
+}
+
+#footer {
+  grid-area: Footer;
 }
