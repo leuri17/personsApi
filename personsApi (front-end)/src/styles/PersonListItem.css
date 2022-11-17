@@ -1,0 +1,31 @@
+.personListItem {
+  width: 90%;
+  height: fit-content;
+  margin: 0 auto;
+  border: 1px solid #646cff;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.personListItem * {
+  margin: 0;
+  padding: 0;
+}
+
+.personListItem img {
+  width: 128px;
+  padding-right: 10px;
+}
+
+.personListItem .personData {
+  display: grid;
+  align-items: center;
+  gap: 0 0;
+  grid-row: 2fr 1fr 1fr;
+}
+
+.personListItem .personData h2 {
+  margin: 0;
+}
