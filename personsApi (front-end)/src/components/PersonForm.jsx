@@ -1,4 +1,7 @@
+import axios from 'axios'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addPerson } from '../reducers/personListReducer'
 import '../styles/PersonForm.css'
 
 const PersonForm = ({ ...props }) => {
@@ -7,13 +10,21 @@ const PersonForm = ({ ...props }) => {
   const [phoneNumber, setPhoneNumber] = useState('')
   const [email, setEmail] = useState('')
 
+  const dispatch = useDispatch()
+
   const handleSubmit = event => {
     event.preventDefault()
 
-    // setPersons([
-    //   ...persons,
-    //   { id: firstName, firstNamFe, lastName, phoneNumber, email }
-    // ])
+    axios
+      .post('http://localhost:8080/person', {
+        firstName,
+        lastName,
+        phoneNumber,
+        email
+      })
+      .then(res => {
+        dispatch(addPerson(res.data))
+      })
   }
 
   return (

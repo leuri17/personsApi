@@ -42,7 +42,7 @@ public class PersonController {
             } catch (Exception e) {
                 code = HttpStatus.INTERNAL_SERVER_ERROR;
             }
-        return new ResponseEntity<Person>(person, code);
+        return new ResponseEntity(person, code);
     }
 
 
